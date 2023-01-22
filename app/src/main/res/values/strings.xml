@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">VitrineF2P</string>
+    <string name="erro">ERRO NA REQUISIÇÃO</string>
+    <string name="title">Title</string>
+    <string name="genre">Genre</string>
+    <string name="plataform">Plataform</string>
+    <string name="publisher">Publisher</string>
+    <string name="developer">Developer</string>
+    <string name="thumbnail">Thumbnail</string>
 </resources>
