@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Games>>, response: Response<List<Games>>) {
                 if (response.isSuccessful) {
                     response.body()?.let{
-                        binding.listGames.adapter = GamesAdapter(it as ArrayList<Games>)
+                        binding.listGames.adapter = GamesAdapter(it as ArrayList<Games>, this@MainActivity)
                         binding.listGames.layoutManager = LinearLayoutManager(this@MainActivity)
                         binding.listGames.visibility = View.VISIBLE
                     }

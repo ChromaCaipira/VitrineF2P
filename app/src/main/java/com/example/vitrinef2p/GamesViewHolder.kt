@@ -3,7 +3,7 @@ package com.example.vitrinef2p
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vitrinef2p.databinding.ItemGameBinding
 
-class GamesViewHolder(private val binding: ItemGameBinding) :
+class GamesViewHolder(val binding: ItemGameBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(games: Games){
