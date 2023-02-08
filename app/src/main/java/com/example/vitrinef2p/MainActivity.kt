@@ -3,6 +3,8 @@ package com.example.vitrinef2p
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vitrinef2p.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -16,6 +18,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        @Suppress("DEPRECATION")
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        supportActionBar?.hide()
         setContentView(binding.root)
 
         val call: Call<List<Games>>? = RetrofitClient.instance?.getApi()?.getGames()
