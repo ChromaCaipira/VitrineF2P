@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vitrinef2p.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -19,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        @Suppress("DEPRECATION")
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         supportActionBar?.hide()
         setContentView(binding.root)
 
@@ -31,12 +28,14 @@ class MainActivity : AppCompatActivity() {
                     response.body()?.let{
                         binding.listGames.adapter = GamesAdapter(it as ArrayList<Games>, this@MainActivity)
                         binding.listGames.layoutManager = LinearLayoutManager(this@MainActivity)
+                        binding.barProgress.visibility = View.GONE
                         binding.listGames.visibility = View.VISIBLE
                     }
                 }
             }
 
             override fun onFailure(call: Call<List<Games>>, t: Throwable) {
+                binding.barProgress.visibility = View.GONE
                 binding.msgError.visibility = View.VISIBLE
             }
         })
