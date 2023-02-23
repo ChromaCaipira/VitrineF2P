@@ -34,7 +34,7 @@
         android:layout_margin="8dp"
         android:text="@string/title"
         android:textStyle="bold"
-        android:textColor="@color/green_500"
+        android:textColor="@color/green_contrast"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="1"
         android:shadowDy="1"
